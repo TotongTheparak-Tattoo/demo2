@@ -1,14 +1,16 @@
 # Stage 1: Build the React app
-FROM node:18-alpine as build
+FROM node:16-alpine as build
 
 WORKDIR /app
 
 # Copy package files
 COPY package.json ./
-COPY package-lock.json* ./
 
-# Install dependencies
-RUN npm install --legacy-peer-deps
+# Install dependencies (ignore package-lock.json to avoid conflicts)
+# Install ajv first to resolve dependency conflicts
+RUN rm -f package-lock.json && \
+    npm install ajv@^8.12.0 --legacy-peer-deps && \
+    npm install --legacy-peer-deps
 
 # Copy source code
 COPY . .
