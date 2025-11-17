@@ -1,0 +1,52 @@
+.stock-movement .table th,
+.stock-movement .table td {
+  font-size: 13px;
+}
+
+.stock-movement .badge-type {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.badge-lt6 {
+  background: #d4edda;
+  color: #155724;
+}
+.badge-6to12 {
+  background: #fff3cd;
+  color: #856404;
+}
+.badge-gt12 {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.stock-movement-tablewrap {
+  max-height: 65vh;
+  overflow: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.stock-movement thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f8f9fa;
+}
+
+/* ===== Column widths for StockMovement ===== */
+.col-smov-stockin  { width: 120px !important; } /* StockInDate */
+.col-smov-vendor   { width: 260px !important; } /* Vendor Name */
+.col-smov-invoice  { width: 160px !important; } /* Invoice No */
+.col-smov-box      { width: 190px !important; } /* Box No */
+.col-smov-case     { width: 110px !important; } /* Case No */
+.col-smov-pono     { width: 120px !important; } /* PO No */
+.col-smov-lot      { width: 110px !important; } /* Lot No */
+.col-smov-location { width: 130px !important; } /* Location */
+.col-smov-day      { width: 70px  !important; } /* Day */
+.col-smov-type     { width: 140px !important; } /* StockMovementType */
+
+

@@ -1,0 +1,67 @@
+/* EditMonthlyData.css - Similar to MonthlyDataLog.css */
+
+.table-resize {
+  resize: both;
+  overflow: auto;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  max-height: 70vh;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.table-custom.table-compact {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table-custom.table-compact th,
+.table-custom.table-compact td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px 6px;
+  font-size: 0.85rem;
+  vertical-align: middle;
+}
+
+/* Column width helpers for EditMonthlyData */
+.col-edit-actions { width: 170px !important; }
+.col-edit-date { width: 110px !important; }
+.col-edit-time { width: 80px !important; }
+.col-edit-inv { width: 120px !important; }
+.col-edit-item { width: 80px !important; }
+.col-edit-importer { width: 300px !important; }
+.col-edit-desc { width: 300px !important; }
+.col-edit-qty { width: 70px !important; }
+.col-edit-unit { width: 70px !important; }
+.col-edit-netw { width: 100px !important; }
+.col-edit-netwunit { width: 100px !important; }
+.col-edit-curr { width: 70px !important; }
+.col-edit-amount { width: 100px !important; }
+.col-edit-cifthb { width: 100px !important; }
+.col-edit-dutyrate { width: 90px !important; }
+.col-edit-dutyamt { width: 90px !important; }
+.col-edit-tariff { width: 160px !important; }
+.col-edit-ctrldec { width: 150px !important; }
+.col-edit-consctry { width: 120px !important; }
+.col-edit-grossw { width: 100px !important; }
+.col-edit-grosswunit { width: 100px !important; }
+.col-edit-currcode { width: 100px !important; }
+.col-edit-invcurr { width: 120px !important; }
+.col-edit-arrival { width: 110px !important; }
+
+/* Form controls in table */
+.table-custom .form-control-sm {
+  padding: 2px 4px;
+  font-size: 0.8rem;
+  height: 28px;
+}
+
+/* Button styles */
+.btn-sm {
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}

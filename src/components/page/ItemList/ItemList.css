@@ -1,0 +1,238 @@
+/* ItemList Styles - Matching Report Styles */
+
+/* Table resize wrapper */
+.table-resize {
+  resize: both;
+  overflow: auto;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  max-height: 70vh;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* Table layout */
+.item-list-table-wrapper table.table-custom.table-compact {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.item-list-table-wrapper table.table-custom.table-compact th,
+.item-list-table-wrapper table.table-custom.table-compact td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px 6px;
+  font-size: 0.85rem;
+  vertical-align: middle;
+}
+
+/* Table headers */
+.item-list-table-wrapper table.table-custom th {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  user-select: none;
+}
+
+/* Resize handle visual feedback */
+.item-list-table-wrapper table.table-custom th .resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  cursor: col-resize;
+  user-select: none;
+  background: transparent;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.item-list-table-wrapper table.table-custom th .resizer:hover {
+  background: rgba(33, 150, 243, 0.5);
+}
+
+.item-list-table-wrapper table.table-custom th .resizer:active {
+  background: rgba(33, 150, 243, 0.8);
+}
+
+/* Column width helpers for Item List */
+.col-item-spec { width: 100px !important; }
+.col-item-dia { width: 90px !important; }
+.col-item-length { width: 90px !important; }
+.col-item-size { width: 130px !important; }
+.col-item-l { width: 60px !important; }
+.col-item-w { width: 60px !important; }
+.col-item-h { width: 60px !important; }
+.col-item-sub { width: 100px !important; }
+.col-item-weight { width: 80px !important; }
+.col-item-vendor { width: 190px !important; }
+.col-item-zone { width: 60px !important; }
+
+/* Column width helpers for Unmatched Products */
+.col-unmatched-id { width: 80px !important; }
+.col-unmatched-box { width: 150px !important; }
+.col-unmatched-invoice { width: 150px !important; }
+.col-unmatched-case { width: 120px !important; }
+.col-unmatched-po { width: 120px !important; }
+.col-unmatched-lot { width: 120px !important; }
+.col-unmatched-name { width: 200px !important; }
+.col-unmatched-spec { width: 150px !important; }
+.col-unmatched-size { width: 120px !important; }
+.col-unmatched-width { width: 80px !important; }
+.col-unmatched-qty { width: 80px !important; }
+.col-unmatched-unit { width: 60px !important; }
+
+/* Controls styling matching Report styles */
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.vp-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vp-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #495057;
+}
+
+.form-control.angle {
+  border-radius: 0.375rem;
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.form-control.angle:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button styling matching Report styles */
+.btn.angle {
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Card styling matching Report styles */
+.card.angle {
+  border-radius: 0.375rem;
+}
+
+.gap-margin {
+  margin-bottom: 1rem;
+}
+
+/* Loading and no data styling */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+  font-size: 1.125rem;
+}
+
+.no-data-cell {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  color: #6c757d;
+  font-size: 1.125rem;
+}
+
+/* Text alignment */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Table header styling */
+thead.text-center th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .item-list-container .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .item-list-container .vp-field {
+    width: 100%;
+  }
+
+  .item-list-table-wrapper table.table-custom.table-compact th,
+  .item-list-table-wrapper table.table-custom.table-compact td {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+  }
+  
+  /* Adjust column widths on mobile */
+  .col-item-spec { width: 150px !important; }
+  .col-item-vendor { width: 150px !important; }
+  .col-unmatched-name { width: 150px !important; }
+  .col-unmatched-invoice { width: 120px !important; }
+}
+

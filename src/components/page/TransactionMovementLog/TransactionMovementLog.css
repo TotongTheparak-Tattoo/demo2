@@ -1,0 +1,39 @@
+/* TransactionMovementLog.css - Similar to MonthlyDataLog.css */
+
+.table-resize {
+  resize: both;
+  overflow: auto;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  max-height: 70vh;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.table-custom.table-compact {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table-custom.table-compact th,
+.table-custom.table-compact td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px 6px;
+  font-size: 0.85rem;
+  vertical-align: middle;
+}
+
+/* Column width helpers for TransactionMovementLog */
+.col-tmlog-date { width: 100px; }
+.col-tmlog-time { width: 80px; }
+.col-tmlog-inv { width: 120px; }
+.col-tmlog-item { width: 80px; }
+.col-tmlog-exporter { width: 150px; }
+.col-tmlog-desc { width: 150px; }
+.col-tmlog-declaration { width: 150px; }
+.col-tmlog-declarationline { width: 120px; }
+.col-tmlog-ctrldec { width: 150px; }
+.col-tmlog-action { width: 90px; }

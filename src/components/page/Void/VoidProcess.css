@@ -1,0 +1,103 @@
+/* การตั้งค่าทั่วไป */
+.table-custom thead th { text-align: center; } /* header center */
+.no-data-cell { text-align: center; color: #8b0000; font-weight: 700; }
+.loading { padding: 18px; text-align: center; color: #334155; font-weight: 600; }
+
+/* header ของการ์ด */
+.card-void {
+  background: #f3f5fa;
+  font-weight: 700;
+  text-align: center; /* center header text */
+}
+
+/* controls แถวบน */
+.vp-controls {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: end;
+  margin-bottom: 8px;
+}
+.vp-field { display: grid; gap: 6px; }
+.vp-label { font-weight: 700; }
+.vp-input-wrap { display: flex; align-items: center; gap: 8px; }
+.vp-hint { color: #6b7280; font-size: 12px; }
+
+/* wrapper ตาราง: เปิดเลื่อนทั้งสองแกน */
+.table-wrapper {
+  overflow: auto;          /* แนวตั้ง */
+  max-height: 420px;
+  border-radius: 6px;
+  scrollbar-gutter: auto;
+}
+
+/* เฉพาะแนวนอน (ซ้อนใน .table-wrapper) */
+.table-h-scroll {
+  overflow-x: auto;        /* แนวนอน */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ตารางคอมแพค + ปักหัวตาราง */
+.table-custom.table-compact {
+  table-layout: fixed !important; /* ให้ colgroup มีผลจริง */
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+}
+.table-custom.table-compact thead th {
+  position: sticky;
+  top: 0;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 1; /* กันโดนบังเวลาเลื่อน */
+}
+.table-custom.table-compact tbody td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #eef2f7;
+  color: #1f2937;
+}
+.table-custom.table-compact tbody tr:hover {
+  background: #f9fbff;
+}
+
+/* ชิดขวาตัวเลข */
+.table-custom .num { text-align: right; }
+
+/* บังคับความกว้างขั้นต่ำเพื่อให้เกิดสกอร์ลล์แนวนอน */
+.table-wide { min-width: 1200px; } /* ปรับได้ตามจริง */
+
+/* ===== ความกว้างคอลัมน์ (ใช้ร่วมกับ <colgroup>) =====
+   ใส่ !important กันโดนทับจากธีมหรือสไตล์อื่น */
+.table-custom col.col-date   { width: 110px !important; }
+.table-custom col.col-vendor { width: 300px !important; }
+.table-custom col.col-mi     { width: 140px !important; }
+.table-custom col.col-case   { width: 90px  !important; }
+.table-custom col.col-pallet { width: 220px !important; }
+.table-custom col.col-qty    { width: 130px !important; }
+.table-custom col.col-status { width: 100px !important; }
+.table-custom col.col-spec   { width: 140px !important; }
+.table-custom col.col-size   { width: 90px  !important; }
+.table-custom col.col-click  { width: 150px !important; }
+
+/* ============== ยูทิลิตี้เสริม ============== */
+.vp-footer { margin-top: 10px; color: #374151; }
+.btn-xs { padding: 4px 10px; font-size: 12px; }
+
+/* Optional: Scrollbar styling */
+.table-wrapper::-webkit-scrollbar,
+.table-h-scroll::-webkit-scrollbar { height: 10px; width: 10px; }
+.table-wrapper::-webkit-scrollbar-thumb,
+.table-h-scroll::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 8px; }
+.table-wrapper::-webkit-scrollbar-track,
+.table-h-scroll::-webkit-scrollbar-track { background: #f2f2f2; border-radius: 8px; }
+.table-wrapper, .table-h-scroll { scrollbar-width: thin; scrollbar-color: #c1c1c1 #f2f2f2; }

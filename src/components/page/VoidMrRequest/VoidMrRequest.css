@@ -1,0 +1,98 @@
+/* =========================
+   VoidMrRequest.css (full)
+   ========================= */
+
+/* การตั้งค่าทั่วไป */
+.table-custom thead th { text-align: center !important; } /* ให้หัวตารางชิดกลาง */
+.no-data-cell { text-align: center; color: #8b0000; font-weight: 700; }
+.loading { padding: 18px; text-align: center; color: #334155; font-weight: 600; }
+
+/* header การ์ด */
+.card-void {
+  background: #f3f5fa;
+  font-weight: 700;
+  text-align: center; /* เผื่อกรณีไม่ได้ set inline */
+}
+
+/* controls / hint */
+.vp-hint { color: #6b7280; font-size: 12px; }
+.vp-subheader { font-weight: 700; }
+
+/* ครอบตาราง: เลื่อนทั้งสองแกน */
+.table-wrapper {
+  overflow: auto;
+  max-height: 420px;
+  border-radius: 6px;
+}
+
+/* ตัวช่วยแนวนอน */
+.table-h-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ตารางคอมแพค + sticky header */
+.table-custom.table-compact {
+  table-layout: fixed;       /* ให้ colgroup/col width มีผล */
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+}
+.table-custom.table-compact thead th {
+  position: sticky;
+  top: 0;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 1;
+}
+.table-custom.table-compact tbody td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #eef2f7;
+  color: #1f2937;
+}
+.table-custom.table-compact tbody tr:hover {
+  background: #f9fbff;
+}
+
+/* ชิดขวาตัวเลข (ถ้ามี) */
+.table-custom .num { text-align: right; }
+
+/* บังคับความกว้างขั้นต่ำเพื่อให้เกิดสกอร์ลล์แนวนอน (ถ้าตารางแน่น) */
+.table-wide { min-width: 1200px; }
+
+/* ปุ่มให้เข้ากับธีมเดิมในโปรเจกต์ */
+.btn.btn-danger.angle    { background: #ef4444; color: #fff; }
+.btn.btn-secondary.angle { background: #9aa3ad; color: #fff; }
+.btn.btn-danger.angle:hover,
+.btn.btn-secondary.angle:hover { filter: brightness(1.05); }
+
+/* footer เล็กน้อย */
+.vp-footer { margin-top: 10px; color: #374151; }
+
+/* ===== (ทางเลือก) ตั้งชื่อคอลัมน์สำหรับใช้แทน inline width =====
+   หากอยากย้ายขนาดความกว้างคอลัมน์จาก JS (COL_WIDTHS) มาไว้ใน CSS:
+   - เปลี่ยน <colgroup> ใน JSX ให้ใส่ class ตามด้านล่างนี้
+   - แล้วลบ/เลิกใช้อาร์เรย์ COL_WIDTHS ในไฟล์ .jsx
+*/
+.col-vmr-check   { width: 90px;  }  /* checkbox */
+.col-vmr-master  { width: 130px; }  /* masterInvoiceNo */
+.col-vmr-partial { width: 130px; }  /* partialInvoice */
+.col-vmr-request { width: 110px; }  /* requestDate */
+.col-vmr-delivery{ width: 110px; }  /* deliveryTo */
+.col-vmr-vendor  { width: 250px; }  /* vendorMasterName */
+.col-vmr-pallet  { width: 80px;  }  /* palletNo */
+.col-vmr-location{ width: 80px;  }  /* locationId */
+.col-vmr-created { width: 160px; }  /* createdAt */
+.col-vmr-updated { width: 160px; }  /* updatedAt */
+.col-vmr-remark  { width: 60px;  }  /* remark */
+

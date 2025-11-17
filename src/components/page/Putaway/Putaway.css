@@ -1,0 +1,369 @@
+.card-receive {
+    border-radius: 0px;
+    background-color: #ECEFF1;
+    justify-content: flex-start; 
+    
+  }
+  
+  .color-link{
+    color: #A1ACB1;
+  }
+  
+  
+  .angle {
+    border-radius: 0px ;
+  }
+  
+  /* ------------------------------------------------- */
+  
+  
+.table-wrapper {
+  overflow: auto;
+  max-height: 70vh;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.table-wrapper.table-resize {
+  resize: both;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  border: 1px solid #ddd;
+}
+
+.table-wrapper.table-h-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+.putaway-table-wrapper {
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.putaway-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.putaway-table thead th,
+.putaway-table tbody td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 6px 8px;
+  vertical-align: middle;
+}
+
+.putaway-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #186FAA;
+  color: #ffffff;
+  font-weight: 600;
+  user-select: none;
+  position: relative;
+}
+
+.putaway-table thead th .resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  cursor: col-resize;
+  user-select: none;
+  background: transparent;
+  transition: background 0.2s ease;
+  z-index: 3;
+}
+
+.putaway-table thead th .resizer:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.putaway-table thead th .resizer:active {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.col-putaway-date { width: 120px !important; }
+.col-putaway-time { width: 100px !important; }
+.col-putaway-vendor-code { width: 120px !important; }
+.col-putaway-vendor-name { width: 220px !important; }
+.col-putaway-mi { width: 200px !important; }
+.col-putaway-pallet { width: 220px !important; }
+.col-putaway-location { width: 140px !important; }
+.col-putaway-case { width: 140px !important; }
+.col-putaway-po { width: 140px !important; }
+.col-putaway-lot { width: 140px !important; }
+.col-putaway-qty { width: 90px !important; }
+.col-putaway-unit { width: 80px !important; }
+.col-putaway-width { width: 90px !important; }
+.col-putaway-spec { width: 160px !important; }
+.col-putaway-size { width: 120px !important; }
+.col-putaway-weight { width: 120px !important; }
+.col-putaway-import { width: 160px !important; }
+.col-putaway-zone { width: 80px !important; }
+.col-putaway-status { width: 150px !important; }
+
+.table-receive th {
+  background-color: #186FAA;
+  color: #FFFFFF;
+}
+.table-receive td {
+  text-align: center; 
+  vertical-align: middle; 
+}
+
+.table-custom.table-compact {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table-custom.table-compact th,
+.table-custom.table-compact td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 6px 8px;
+  vertical-align: middle;
+}
+  
+  .btn-palletnote {
+    margin-left: 25px;
+  }
+  
+  .btn-add-box-no {
+    background-color: #1B90C0;
+    color: #FFFFFF;
+  }
+  
+  .form-receive {
+    margin-left: 10px;
+  }
+  
+  .text-scan-box {
+    margin-top: 5px;
+  }
+  
+  .gap-margin{
+    margin: 10px 10px 10px 10px;
+  }
+  
+  .input-custom {
+    border: 2px solid #2883C0;
+  }
+  
+  .btn-primary-palletnote {
+    background: #2883C0;
+    color: #FFFFFF;
+  }
+  
+  /* --------------------------------------TagFrom css------------------------------------------- */
+  /* Default layout (for screen) */
+  .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  }
+  
+  /* General styling for all tags */
+  
+  .tag-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px 0;
+  width: 500px;
+  }
+  
+  .qr-container {
+  margin-right: 10px;
+  }
+  
+  p {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  }
+  /* .tag-container {
+  width: 400px;
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  } */
+  
+  .tag-header {
+  text-align: center;
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  }
+  
+  .tag-header h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+  }
+  
+  .row-tag{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+  }
+  
+  .label-tag {
+  font-weight: bold;
+  flex: 1;
+  }
+  
+  .barcode {
+  flex: 1;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  }
+  
+  .qr-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  }
+  
+  /* A4 Paper Print Layout */
+  @media print {
+  body.A4 .tag-list {
+    flex-direction: column;
+  }
+  
+  body.A4 .tag-container {
+    width: 100%;
+    page-break-after: always;
+  }
+  }
+  
+  /* Barcode Printer Layout */
+  @media print {
+  body.barcode .tag-container {
+    width: 300px;
+    height: 200px;
+    margin: 0;
+    padding: 5px;
+    page-break-after: always;
+  }
+  
+  body.barcode .qr-container {
+    justify-content: flex-start;
+  }
+  }
+  @media print {
+  .content-wrapper > div:first-child {
+    display: none; /* Hide print controls during print */
+  }
+  
+  .tag-list {
+    page-break-inside: avoid; /* Avoid splitting tags across pages */
+  }
+  
+  img {
+    max-width: 150px; /* Ensure QR code images fit properly */
+  }
+  }
+  
+  
+  @media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .tag-list, .tag-list * {
+    visibility: visible;
+  }
+  
+  .tag-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .qr-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .tag-header {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  }
+  @media print {
+  canvas {
+    display: inline-block; /* Ensure QR code canvases are shown */
+  }
+  }
+  
+  
+  .no-data-message {
+  text-align: center;
+  color: #ff6347;
+  /* font-size: 20px; */
+  font-weight: bold;
+  /* padding: 20px; */
+  border: 2px dashed #ff6347;
+  border-radius: 0px !important;
+  background-color: #ffe6e6;
+  /* margin-top: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  column-span: 100%;
+  }
+  
+  /* .no-data-row {
+  background-color: #f8d7da;
+  border: 1px dashed #dc3545;
+  } */
+  
+  .no-data-cell {
+  text-align: center !important;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: bold;
+  color: #721c24;
+  padding: 20px;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .card-MR-detial {
+    
+    overflow: auto; 
+    max-height: 80vh; 
+    max-width: 90vw; 
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  

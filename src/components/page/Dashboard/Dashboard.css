@@ -1,0 +1,18 @@
+/* Dashboard.css */
+
+.dashboard-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-card {
+    margin-bottom: 15px;
+  }
+}
+

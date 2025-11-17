@@ -1,0 +1,39 @@
+/* src/pages/Outbound/MoveLocation.css */
+
+/* จัดโต๊ะให้อยู่กลาง */
+.table-center-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.table-center {
+  width: auto !important;
+  table-layout: fixed;        /* ให้ colgroup มีผลจริง */
+  margin: 0 auto;
+}
+
+.table-center th,
+.table-center td {
+  text-align: center;         /* ข้อความชิดกลาง */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ----- ProductBalance column widths ----- */
+.pb-table col.col-vendor   { width: 220px; }
+.pb-table col.col-pallet   { width: 80px; }
+.pb-table col.col-case     { width: 80px; }
+.pb-table col.col-mstInv   { width: 80px; }
+.pb-table col.col-itemname { width: 80px; }
+.pb-table col.col-locCode  { width: 80px; }
+
+
+/* ----- Location column widths ----- */
+.loc-table col.col-locCode { width: 120px; }
+.loc-table col.col-rack    { width: 120px; }
+.loc-table col.col-bay     { width: 120px; }
+.loc-table col.col-shelf   { width: 120px; }
+.loc-table col.col-subBay  { width: 120px; }
+.loc-table col.col-locZone { width: 120px; }
+.loc-table col.col-subLoc  { width: 120px; }

@@ -1,0 +1,16 @@
+.um-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.um-left, .um-right { display: flex; align-items: center; gap: 10px; }
+
+.table-custom.table-compact th, 
+.table-custom.table-compact td {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.badge.bg-success { background: #16a34a !important; }
+.badge.bg-secondary { background: #6b7280 !important; }

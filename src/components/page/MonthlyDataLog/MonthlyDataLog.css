@@ -1,0 +1,39 @@
+.table-h-scroll {
+  max-height: 60vh;
+  overflow: auto;
+}
+.table-wide {
+  table-layout: auto;
+  width: 100%;
+}
+.loading {
+  padding: 24px;
+  text-align: center;
+}
+
+/* Make the table area resizable and easier to read on wide data */
+.table-resize {
+  resize: both;            /* user can drag to resize container */
+  overflow: auto;          /* keep scrollbars when resized smaller */
+  min-height: 240px;
+  max-height: 75vh;
+  min-width: 320px;
+}
+
+/* Compact table look */
+.table-custom.table-compact th,
+.table-custom.table-compact td {
+  padding: 6px 10px;
+  font-size: 12px;
+  white-space: nowrap;     /* prevent wrapping long headers/cells */
+}
+
+/* Optional fixed widths for common columns (tweak as needed) */
+.col-mdlog-date { width: 120px; }
+.col-mdlog-time { width: 90px; }
+.col-mdlog-inv  { width: 140px; }
+.col-mdlog-item { width: 90px; }
+.col-mdlog-desc { width: 220px; }
+.col-mdlog-num  { width: 110px; }
+.col-mdlog-arrival { width: 110px; }
+

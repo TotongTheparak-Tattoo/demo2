@@ -1,0 +1,61 @@
+/* ===== FINAL PATCH: ล็อกไม่ให้มีสกอลล์แนวนอน และบังคับตัดบรรทัด ===== */
+
+/* 1) ปิดแนวนอนระดับเพจและคอนเทนเนอร์หลัก (กันเคส .row มี margin ลบ ฯลฯ) */
+html, body, .wrapper, .content-wrapper, .card, .card-body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+  box-sizing: border-box;
+}
+
+/* 2) wrapper ตาราง: เลื่อนเฉพาะแนวตั้ง */
+.table-wrapper {
+  overflow-y: auto !important;
+  max-height: 420px;
+  border-radius: 6px;
+  width: 100%;
+}
+
+/* 3) ตารางนี้เท่านั้น: ให้คำนวณความกว้างตามเนื้อหาและตัดบรรทัดได้ */
+.vendor-table {
+  width: 100% !important;
+  table-layout: auto !important;       /* หยุด fixed layout ที่ชอบทำให้ล้น */
+  border-collapse: collapse;            /* กันช่องว่างแอบเพิ่มความกว้าง */
+}
+
+/* 4) ยกเลิก nowrap ที่ธีมตั้งไว้ (ทั้งหัวและตัวตาราง) แล้วบังคับให้ตัดบรรทัด/คำ */
+.vendor-table thead th,
+.vendor-table tbody td {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  word-break: break-word;               /* ตัดคำยาวมีขีด/เว้นวรรค */
+  overflow-wrap: anywhere;              /* ตัดสตริงยาวที่ไม่มีช่องว่าง เช่น รหัส */
+}
+
+/* 5) ถ้าธีมเดิมตั้งให้หัวตาราง nowrap ให้ปิดไว้เฉพาะตารางนี้ */
+.table-custom.table-compact thead th {
+  white-space: normal !important;
+}
+
+/* 6) ขนาดคอลัมน์: ใช้เป็น “ขนาดตั้งต้น” ที่ยืดหดได้ ไม่ทำให้เกิดแนวนอน */
+.vendor-table col.c-vendor-code  { width: 30ch !important; }
+.vendor-table col.c-vendor-name  { width: auto  !important; } /* ให้กินพื้นที่ที่เหลือ */
+.vendor-table col.c-vendor-maker { width: 40ch !important; }
+
+/* 7) กัน class ใดๆ ที่ไปบังคับ min-width กับ table/cell แบบเผื่อไว้ */
+.vendor-table, .vendor-table * {
+  min-width: 0 !important;              /* สำคัญ: ปิด min-width ที่มักมาพร้อม UI kit */
+  box-sizing: border-box;
+}
+
+/* 8) ถ้าหน้าคุณใช้ .row (Bootstrap) ข้างๆ ตารางแล้วล้นขอบหน้าจอ ให้หุ้มผลกระทบไว้ */
+.wrapper .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* 9) (ตัวเลือก) sticky header ของธีมอาจเพี้ยนความกว้างเวลาเกิด scrollbar แนวตั้ง
+   ปรับความกว้างหัวตารางเล็กน้อยเพื่อกันเกิดแนวนอนจาก rounding */
+.vendor-table thead th {
+  width: auto;
+}

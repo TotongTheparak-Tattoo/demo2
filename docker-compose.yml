@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_API_URL=http://192.168.100.124:3001
+    container_name: demo2-frontend
+    ports:
+      - "192.168.100.124:3020:80"
+    restart: unless-stopped
+    networks:
+      - demo2-network
+
+networks:
+  demo2-network:
+    driver: bridge
+

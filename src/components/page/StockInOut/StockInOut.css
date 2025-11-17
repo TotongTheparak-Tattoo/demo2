@@ -1,0 +1,314 @@
+/* Stock In-Out Data Styles */
+.stock-in-out-wrapper {
+  overflow-x: auto;
+}
+
+.stock-in-out-table {
+  font-size: 12px;
+  min-width: 2000px;
+}
+
+.stock-in-out-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  white-space: nowrap;
+  padding: 8px 4px;
+  border: 1px solid #dee2e6;
+}
+
+.stock-in-out-table td {
+  padding: 6px 4px;
+  border: 1px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.stock-in-out-table .num {
+  text-align: center;
+  width: 50px;
+}
+
+.stock-in-out-table .text-right {
+  text-align: right;
+}
+
+.stock-in-out-table .text-left {
+  text-align: left;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-data-cell {
+  text-align: center;
+  padding: 40px !important;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.controls-3rows {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.vp-field {
+  margin-bottom: 10px;
+}
+
+.vp-label {
+  font-weight: bold;
+  font-size: 12px;
+  color: #495057;
+}
+
+.table-h-scroll {
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+
+.pagination {
+  margin: 0;
+}
+
+.page-link {
+  font-size: 12px;
+  padding: 6px 12px;
+}
+
+.card-receive {
+  background-color:  #f3f5fa;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.angle {
+  border-radius: 5px;
+}
+
+.gap-margin {
+  margin: 10px;
+}
+
+.btn {
+  font-size: 12px;
+  padding: 6px 12px;
+}
+
+.alert {
+  font-size: 12px;
+  padding: 10px 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stock-in-out-table {
+    font-size: 10px;
+  }
+  
+  .stock-in-out-table th,
+  .stock-in-out-table td {
+    padding: 4px 2px;
+  }
+  
+  .controls-3rows .row {
+    margin-bottom: 10px;
+  }
+  
+  .controls-3rows .col-md-3,
+  .controls-3rows .col-md-2 {
+    margin-bottom: 10px;
+  }
+}
+
+/* Loading spinner */
+.spinner-border {
+  width: 2rem;
+  height: 2rem;
+  border-width: 0.2em;
+}
+
+/* Filter section styling */
+.controls-3rows .form-control {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+.controls-3rows .btn {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Date filter sections */
+.controls-3rows h6 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border-left: 4px solid;
+}
+
+.controls-3rows .row.mt-2 {
+  margin-top: 15px !important;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #e9ecef;
+}
+
+/* Table styling improvements */
+.table-custom {
+  margin-bottom: 0;
+}
+
+/* Control on-screen table size (front) */
+.table-custom.table-compact {
+  table-layout: fixed;
+  width: 100%;
+}
+.table-custom.table-compact th,
+.table-custom.table-compact td {
+  padding: 4px 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table-wide th,
+.table-wide td {
+  font-size: 12px;
+}
+
+/* Fallback: enforce widths by index as well (in case colgroup is ignored) */
+.table-wide thead th:nth-child(1), .table-wide tbody td:nth-child(1) { width: 100px !important; }
+.table-wide thead th:nth-child(2), .table-wide tbody td:nth-child(2) { width: 360px !important; }
+.table-wide thead th:nth-child(3), .table-wide tbody td:nth-child(3) { width: 140px !important; }
+.table-wide thead th:nth-child(4), .table-wide tbody td:nth-child(4) { width: 100px !important; }
+.table-wide thead th:nth-child(5), .table-wide tbody td:nth-child(5) { width: 200px !important; }
+.table-wide thead th:nth-child(6), .table-wide tbody td:nth-child(6) { width: 100px !important; }
+.table-wide thead th:nth-child(7), .table-wide tbody td:nth-child(7) { width: 140px !important; }
+.table-wide thead th:nth-child(8), .table-wide tbody td:nth-child(8) { width: 140px !important; }
+.table-wide thead th:nth-child(9), .table-wide tbody td:nth-child(9) { width: 160px !important; }
+.table-wide thead th:nth-child(10), .table-wide tbody td:nth-child(10) { width: 170px !important; }
+.table-wide thead th:nth-child(11), .table-wide tbody td:nth-child(11) { width: 140px !important; }
+.table-wide thead th:nth-child(12), .table-wide tbody td:nth-child(12) { width: 100px !important; }
+.table-wide thead th:nth-child(13), .table-wide tbody td:nth-child(13) { width: 100px !important; }
+.table-wide thead th:nth-child(14), .table-wide tbody td:nth-child(14) { width: 100px !important; }
+.table-wide thead th:nth-child(15), .table-wide tbody td:nth-child(15) { width: 100px !important; }
+.table-wide thead th:nth-child(16), .table-wide tbody td:nth-child(16) { width: 100px !important; }
+.table-wide thead th:nth-child(17), .table-wide tbody td:nth-child(17) { width: 120px !important; }
+.table-wide thead th:nth-child(18), .table-wide tbody td:nth-child(18) { width: 170px !important; }
+.table-wide thead th:nth-child(19), .table-wide tbody td:nth-child(19) { width: 170px !important; }
+.table-wide thead th:nth-child(20), .table-wide tbody td:nth-child(20) { width: 170px !important; }
+.table-wide thead th:nth-child(21), .table-wide tbody td:nth-child(21) { width: 160px !important; }
+.table-wide thead th:nth-child(22), .table-wide tbody td:nth-child(22) { width: 160px !important; }
+.table-wide thead th:nth-child(22), .table-wide tbody td:nth-child(23) { width: 160px !important; }
+
+.table-custom tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.table-custom tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Summary section */
+.alert-info {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  color: #0c5460;
+}
+
+/* Export button styling */
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* DatePicker styling */
+.stockinout-popper {
+  z-index: 9999 !important;
+}
+
+/* PDF grid table borders for all columns */
+.pdf-grid th,
+.pdf-grid td {
+  border: 1px solid #bfbfbf; /* Excel-like gridline color */
+  padding: 4px 6px;
+  vertical-align: middle;
+  white-space: normal; /* allow wrapping to avoid overlap */
+  word-break: break-word; /* break long tokens */
+  line-height: 1.2;
+  text-align: center; /* center text by default */
+}
+
+.pdf-grid th {
+  background-color: #ddebf7; /* Excel header blue */
+  font-weight: 700;
+  text-align: center;
+  color: #1f4e78;
+}
+
+/* Excel-like zebra striping */
+.pdf-grid tbody tr:nth-child(even) {
+  background-color: #f7fbff;
+}
+
+/* Fixed layout to keep columns consistent */
+.pdf-grid {
+  width: 100%;
+  table-layout: fixed; /* distribute columns evenly */
+  font-size: 8px; /* more compact for PDF */
+  border-collapse: collapse;
+}
+
+
+
+/* Narrower widths for numeric columns (fit more columns per page) */
+.pdf-grid th:nth-child(12), .pdf-grid td:nth-child(12) { width: 4%; padding: 2px 3px; }
+.pdf-grid th:nth-child(13), .pdf-grid td:nth-child(13) { width: 4%; padding: 2px 3px; }
+.pdf-grid th:nth-child(14), .pdf-grid td:nth-child(14) { width: 4%; padding: 2px 3px; }
+.pdf-grid th:nth-child(15), .pdf-grid td:nth-child(15) { width: 4%; padding: 2px 3px; }
+.pdf-grid th:nth-child(16), .pdf-grid td:nth-child(16) { width: 4%; padding: 2px 3px; }
+.pdf-grid th:nth-child(17), .pdf-grid td:nth-child(17) { width: 3%; padding: 2px 3px; }
+
+/* Remove fixed percentage widths to let the browser auto-fit columns to page */
+.pdf-grid th:nth-child(4), .pdf-grid td:nth-child(4) { width:4%; }
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.react-datepicker__input-container input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}

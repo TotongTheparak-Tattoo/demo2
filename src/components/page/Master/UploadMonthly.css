@@ -1,0 +1,241 @@
+.card-picking {
+  border-radius: 0px;
+  background-color: #ECEFF1;
+  justify-content: flex-start;
+}
+
+.color-link {
+  color: #FFFFFF;
+}
+
+.angle {
+  border-radius: 0px;
+}
+
+.gap-margin {
+  margin: 10px 10px 10px 10px;
+}
+
+.select-division {
+  text-align: left;
+  margin-left: 7px;
+}
+
+.date-picker-small {
+  width: 70%;
+}
+
+/* Compact table layout for CSV preview */
+.table-custom.table-compact {
+  table-layout: fixed;   /* ใช้ความกว้างตาม colgroup */
+  width: 100%;
+}
+
+.table-custom.table-compact th,
+.table-custom.table-compact td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px 6px;      /* บีบระยะ */
+  font-size: 0.85rem;    /* ตัวอักษรย่อมลง */
+  vertical-align: middle;
+}
+
+/* กำหนดความกว้างพื้นฐานของทุกคอลัมน์ใน preview (ปรับได้) */
+.table-custom.table-compact col {
+  width: 140px;
+}
+
+/* ตัวเลขชิดขวา ถ้ามีคอลัมน์ตัวเลขใช้ class="num" ก็จะจัดให้อัตโนมัติ */
+.table-custom .num { text-align: right; }
+
+/* ให้กล่องตารางเลื่อนแนวนอนได้ถ้าคอลัมน์เยอะ */
+.table-wrapper.csv-preview {
+  overflow-x: auto;
+}
+
+/* Style for table */
+.table-custom {
+  table-layout: fixed;          /* บังคับคอลัมน์ความกว้างคงที่ */
+  width: 1400px;                /* fix ความกว้างรวม (ปรับได้เอง) */
+  border-collapse: collapse;
+  text-align: center;
+}
+
+/* กล่องครอบตารางให้ scroll ได้ */
+.table-wrapper {
+  width: 100%;
+  max-height: 500px;            /* fix ความสูงตาราง */
+  overflow-x: auto;             /* scroll แนวนอน */
+  overflow-y: auto;             /* scroll แนวตั้ง */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* header แสดงชัดเจนและ sticky */
+.table-custom th {
+  background-color: #186FAA;
+  color: white;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+/* กำหนดความกว้าง default ของแต่ละ column */
+.table-custom th,
+.table-custom td {
+  width: 180px;                 /* ทุกคอลัมน์กว้าง 180px (แก้ได้ตามต้องการ) */
+  padding: 10px;
+  border: 1px solid #F3F5F5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ให้คอลัมน์แรกกว้างพิเศษ */
+.table-custom th:first-child,
+.table-custom td:first-child {
+  width: 220px;
+}
+
+/* row background */
+.table-custom tr {
+  background-color: #F3F5F5;
+}
+
+.table-custom tr:hover {
+  background-color: #ffffff;
+}
+
+/* no data */
+.no-data-cell {
+  text-align: center !important;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: bold;
+  color: #721c24;
+  padding: 20px;
+}
+
+/* ===================== Dropdown Select (Modern Button) ===================== */
+.dropdown-select {
+  appearance: none;
+  border: 1px solid #e2e8f0;          /* slate-200 */
+  background: #ffffff;
+  color: #0f172a;                     /* slate-900 */
+  border-radius: 9999px;              /* pill */
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform .12s ease, box-shadow .12s ease,
+              border-color .12s ease, background-color .12s ease, color .12s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  text-decoration: none;              /* เผื่อใช้เป็น <a> */
+}
+
+.dropdown-select:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  border-color: #cbd5e1;              /* slate-300 */
+}
+
+.dropdown-select:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.dropdown-select:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px #ffffff,
+    0 0 0 4px #2563eb44;              /* soft focus ring */
+}
+
+.dropdown-select:disabled,
+.dropdown-select[aria-disabled="true"] {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+/* ---------------------- Variants ---------------------- */
+/* Primary */
+.dropdown-select--primary {
+  background: #2563eb;                /* blue-600 */
+  border-color: #2563eb;
+  color: #ffffff;
+}
+.dropdown-select--primary:hover:not(:disabled) {
+  background: #1d4ed8;                /* blue-700 */
+  border-color: #1d4ed8;
+}
+
+/* Ghost (ขอบบาง พื้นโปร่ง) */
+.dropdown-select--ghost {
+  background: transparent;
+  border-color: #e2e8f0;
+}
+.dropdown-select--ghost:hover:not(:disabled) {
+  background: #f8fafc;
+}
+
+/* Danger */
+.dropdown-select--danger {
+  background: #dc2626;                /* red-600 */
+  border-color: #dc2626;
+  color: #fff;
+}
+.dropdown-select--danger:hover:not(:disabled) {
+  background: #b91c1c;                /* red-700 */
+  border-color: #b91c1c;
+}
+
+/* Icon only (เช่น <<, >>, chevron) */
+.dropdown-select--icon {
+  padding: 8px;                       /* กลม ๆ สำหรับปุ่มไอคอน */
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+}
+
+/* ---------------------- Sizes ---------------------- */
+.dropdown-select--sm { padding: 6px 10px; font-size: 0.85rem; }
+.dropdown-select--lg { padding: 10px 16px; font-size: 1rem;  }
+
+/* ---------------------- State Helpers ---------------------- */
+/* Active / Selected */
+.dropdown-select.is-active {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px #2563eb22;
+}
+
+/* Loading (แสดงสปินเนอร์ทางขวา) */
+.dropdown-select.is-loading {
+  position: relative;
+  pointer-events: none;
+}
+.dropdown-select.is-loading::after {
+  content: "";
+  width: 16px; height: 16px;
+  margin-left: 6px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  border-top-color: #2563eb;
+  display: inline-block;
+  animation: ds-spin .8s linear infinite;
+}
+@keyframes ds-spin { to { transform: rotate(360deg); } }
+
+/* กลุ่มปุ่ม (เช่น ปุ่มย้อน/ถัดไป/แรก/สุดท้าย) */
+.dropdown-select-group {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}

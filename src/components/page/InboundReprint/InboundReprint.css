@@ -1,0 +1,50 @@
+.table-container { width: 100%; }
+.table-scroll{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.table-custom{
+  table-layout: fixed;
+  width: 100%;
+  min-width: 1400px; 
+}
+
+.table-custom th,
+.table-custom td{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;       
+  vertical-align: middle;
+  padding: 8px 10px;
+}
+
+.table-custom thead th{
+  background:#186FAA; color:#fff;
+}
+
+.reprint-col-idx{ width:56px !important; }
+.reprint-col-date{ width:130px !important; }
+.reprint-col-vendor{ width:110px !important; }
+.reprint-col-vendor-name{ width:320px !important; }
+.reprint-col-mi{ width:200px !important; }
+.reprint-col-pallet{ width:220px !important; }
+.reprint-col-case{ width:130px !important; }
+.reprint-col-lot{ width:120px !important; }
+.reprint-col-qty{ width:90px !important; }
+.reprint-col-unit{ width:80px !important; }
+.reprint-col-width{ width:90px !important; }
+.reprint-col-spec{ width:200px !important; }
+.reprint-col-size{ width:130px !important; }
+.reprint-col-status{ width:120px !important; }
+.reprint-col-location{ width:130px !important; }
+.reprint-col-zone{ width:80px !important; }
+.reprint-col-select{ width:110px !important; }
+
+.no-data-cell{
+  text-align:center !important; vertical-align:middle;
+  font-size: 16px; font-weight:700; color:#721c24; padding:18px;
+}

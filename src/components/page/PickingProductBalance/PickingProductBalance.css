@@ -1,0 +1,732 @@
+:root {
+  --bg: #f3f6f9;
+  --panel: #ffffff;
+  --panel-border: #e2e8f0;
+  --panel-header: #edf2f7;
+  --text: #2d3748;
+  --muted: #6b7280;
+  --primary: #56a8ff;
+  /* ปุ่ม Search (ฟ้า) */
+  --secondary: #9aa3ad;
+  /* ปุ่ม Clear (เทา) */
+  --outline: #64748b;
+  --no-data: #8b0000;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 4px 8px rgba(16, 24, 40, .06);
+  --radius: 8px;
+  --radius-lg: 10px;
+}
+
+/* กันการตัดกลางแถว */
+.print-table tr,
+.print-table td,
+.print-table th {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+@media screen {
+  .print-portal { position: absolute; left: -99999px; top: 0; visibility: hidden; }
+}
+@media print {
+  .print-portal {
+    display: block !important;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+}
+
+.page {
+  padding: 16px;
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 8px;
+  background: #e9edf2;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+.breadcrumb .current {
+  color: #4a5568;
+}
+
+.breadcrumb .sep {
+  color: #a0aec0;
+}
+
+.panel {
+  margin-top: 14px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 12px 16px;
+  background: var(--panel-header);
+  border-bottom: 1px solid var(--panel-border);
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.panel-body {
+  padding: 16px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.scan-input {
+  min-width: 360px;
+  flex: 1 1 360px;
+  padding: 10px 12px;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  outline: none;
+}
+
+.scan-input:focus {
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, .2);
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .02s ease, filter .15s ease, background .15s ease;
+  user-select: none;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .04);
+}
+
+.btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-upload {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-upload:hover {
+  filter: brightness(1.05);
+}
+
+.btn-clear {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.btn-clear:hover {
+  filter: brightness(1.05);
+}
+
+.btn-outline {
+  background: #fff;
+  border: 1px solid var(--outline);
+  color: var(--outline);
+}
+
+.btn-outline:hover {
+  filter: brightness(1.05);
+}
+
+.only-matched {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #334155;
+}
+
+.preview {
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  background: #f7f9fb;
+  min-height: 120px;
+  padding: 8px;
+}
+
+.loading {
+  padding: 18px;
+  text-align: center;
+  color: #334155;
+  font-weight: 600;
+}
+
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--no-data);
+  font-weight: 700;
+  padding: 18px;
+}
+
+.no-data .doc-icon {
+  filter: grayscale(100%);
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pager .right {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pager .page-no {
+  min-width: 36px;
+  text-align: center;
+  font-weight: 700;
+  color: #475569;
+}
+
+.limit-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+}
+
+.limit-input {
+  width: 80px;
+  padding: 6px 8px;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+}
+
+.footer {
+  margin-top: 24px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e0e0e0;
+  color: #111827;
+  border-radius: 6px;
+  border: 1px solid #c9c9c9;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #0f51ff;
+  text-decoration: none;
+}
+
+.footer b {
+  font-weight: 700;
+}
+
+:root {
+  --bg: #f3f6f9;
+  --panel: #ffffff;
+  --panel-border: #e2e8f0;
+  --panel-header: #edf2f7;
+  --text: #2d3748;
+  --muted: #6b7280;
+  --primary: #56a8ff;
+  --secondary: #9aa3ad;
+  --outline: #64748b;
+  --no-data: #8b0000;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 4px 8px rgba(16, 24, 40, .06);
+  --radius: 8px;
+  --radius-lg: 10px;
+}
+
+/* screen/print portal */
+@media screen {
+  .print-portal { display: none; }
+}
+
+@media print {
+  .print-portal { display: block !important; }
+}
+
+/* ========= LAYOUT ========= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+}
+
+.page {
+  padding: 16px;
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 8px;
+  background: #e9edf2;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+.breadcrumb .current {
+  color: #4a5568;
+}
+
+.breadcrumb .sep {
+  color: #a0aec0;
+}
+
+.panel {
+  margin-top: 14px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 12px 16px;
+  background: var(--panel-header);
+  border-bottom: 1px solid var(--panel-border);
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.panel-body {
+  padding: 16px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.scan-input {
+  min-width: 360px;
+  flex: 1 1 360px;
+  padding: 10px 12px;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  outline: none;
+}
+
+.scan-input:focus {
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, .2);
+}
+
+/* Buttons */
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .02s ease, filter .15s ease, background .15s ease;
+  user-select: none;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .04);
+}
+
+.btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* ให้เข้ากับ class เดิมใน JSX */
+.btn.btn-primary.angle {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn.btn-secondary.angle {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.btn.btn-success.angle {
+  background: #22c55e;
+  color: #fff;
+}
+
+.btn.btn-danger.angle {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn.btn-enter.angle {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-upload {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-upload:hover,
+.btn-clear:hover,
+.btn-outline:hover {
+  filter: brightness(1.05);
+}
+
+.btn-clear {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.btn-outline {
+  background: #fff;
+  border: 1px solid var(--outline);
+  color: var(--outline);
+}
+
+.only-matched {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #334155;
+}
+
+.preview {
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  background: #f7f9fb;
+  min-height: 120px;
+  padding: 8px;
+}
+
+.loading {
+  padding: 18px;
+  text-align: center;
+  color: #334155;
+  font-weight: 600;
+}
+
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--no-data);
+  font-weight: 700;
+  padding: 18px;
+}
+
+.no-data .doc-icon {
+  filter: grayscale(100%);
+}
+
+/* ให้ตรงกับ JSX ที่ใช้ .no-data-cell */
+.no-data-cell {
+  color: var(--no-data);
+  font-weight: 700;
+  text-align: center;
+  padding: 18px;
+}
+
+/* Pager/summary */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pager .right {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pager .page-no {
+  min-width: 36px;
+  text-align: center;
+  font-weight: 700;
+  color: #475569;
+}
+
+.limit-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+}
+
+.limit-input {
+  width: 80px;
+  padding: 6px 8px;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+}
+
+.footer {
+  margin-top: 24px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e0e0e0;
+  color: #111827;
+  border-radius: 6px;
+  border: 1px solid #c9c9c9;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #0f51ff;
+  text-decoration: none;
+}
+
+.footer b {
+  font-weight: 700;
+}
+
+/* ========= PRINTABLE SHEET ========= */
+
+
+.print-header {
+  text-align: center;
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 8px;
+  letter-spacing: .2px;
+}
+
+.delivery-row {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.delivery-value {
+  font-weight: 600;
+  min-width: 180px;
+  padding: 0 6px;
+  display: inline-block;
+}
+
+.print-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.print-cell {
+  border: 1px solid #000;
+  padding: 6px;
+  font-size: 12px;
+}
+
+.print-th {
+  text-align: left;
+  font-weight: 700;
+  background: #eef2f7;
+  white-space: nowrap;
+}
+
+.print-total {
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.print-checks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.print-checks .left {
+  flex: 1;
+  min-width: 0;
+}
+
+.print-checks .center {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.print-checks .right {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  html,
+  body {
+    font-family: "Sarabun", "TH Sarabun New", Tahoma, Arial, sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  td,
+  th {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* ---------- Table basics ---------- */
+.table-custom thead th {
+  text-align: center !important;
+}
+
+/* center header (win over .table thead th) */
+
+.table-custom.table-compact {
+  table-layout: fixed;
+  /* make colgroup widths effective */
+  width: 100%;
+}
+
+.table-custom.table-compact th,
+.table-custom.table-compact td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px 6px;
+  font-size: 0.85rem;
+  vertical-align: middle;
+}
+
+/* แยกหัว/ตัวตาราง (ถ้าอยากละเอียด) */
+.table-custom.table-compact thead th {
+  font-size: 13px;
+  /* หัวตาราง */
+}
+
+.table-custom.table-compact tbody td {
+  font-size: 12px;
+  /* ตัวตาราง */
+}
+
+/* Column widths (Picking) */
+.col-picking-date {width: 130px !important;}
+.col-picking-delivery { width: 100px !important; }
+.col-picking-vendor {width: 140px !important;}
+.col-picking-partial {width: 140px !important;}
+.col-picking-mi {width: 150px !important;}
+.col-picking-case {width: 90px !important;}
+.col-picking-pallet {width: 220px !important;}
+.col-picking-qty {width: 80px !important;}
+.col-picking-case {width: 120px !important;}
+.col-picking-size {width: 90px !important;}
+.col-picking-location {width: 120px !important;}
+.col-picking-remark {width: 120px !important;}
+
+/* extra used in this page */
+.col-vendor-code {
+  width: 100px !important;
+}
+
+.col-vendor-name {
+  width: 200px !important;
+}
+
+.col-itemname {
+  width: 130px !important;
+}
+
+.col-remark {
+  width: 80px !important;
+}
+
+.table-custom .num {
+  text-align: right;
+}
+
+.table-custom tr.matched td {
+  background: rgba(255, 249, 196, 0.7);
+}
+
+/* ---------- PRINTABLE SHEET ---------- */
+.print-header { text-align:center; font-weight:800; font-size:18px; margin-bottom:8px; }
+.delivery-row { display:flex; gap:10px; align-items:baseline; margin-bottom:8px; font-size:13px; font-weight:700; }
+.delivery-value { font-weight:600; min-width:180px; padding:0 6px; display:inline-block; }
+.print-table { width:100%; border-collapse:collapse; table-layout:fixed; }
+.print-cell { border:1px solid #000; padding:6px; font-size:12px; }
+.print-th { text-align:left; font-weight:700; background:#eef2f7; white-space:nowrap; }
+.print-total { margin-top:8px; font-weight:700; font-size:13px; }
+.print-checks { display:flex; align-items:center; justify-content:space-between; margin-top:8px; font-weight:700; font-size:13px; }
+
+/* Ensure print base */
+@media print {
+  @page { size: A4 landscape; margin: 10mm; }
+  html, body {
+    font-family: "Sarabun","TH Sarabun New",Tahoma,Arial,sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  thead { display: table-header-group; }
+  tr, td, th { page-break-inside: avoid; break-inside: avoid; }
+  .print-root { color:#000; background:#fff; }
+  .print-table th, .print-table td { border:1px solid #000; }
+}

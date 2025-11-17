@@ -1,0 +1,255 @@
+/* Balance Report Styles - Matching TransactionMovement Report */
+
+.table-resize {
+  resize: both;
+  overflow: auto;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  max-height: 70vh;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.table-custom.table-compact {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table-custom.table-compact th,
+.table-custom.table-compact td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px 6px;
+  font-size: 0.85rem;
+  vertical-align: middle;
+}
+
+/* Column width helpers for Balance Report */
+.col-balance-no { width: 70px !important; }
+.col-balance-importer { width: 300px !important; }
+.col-balance-eta { width: 110px !important; }
+.col-balance-stockin { width: 110px !important; }
+.col-balance-entry { width: 150px !important; }
+.col-balance-item { width: 80px !important; }
+.col-balance-desc { width: 300px !important; }
+.col-balance-qty { width: 100px !important; }
+.col-balance-unit { width: 60px !important; }
+.col-balance-weight { width: 100px !important; }
+.col-balance-weight-unit { width: 60px !important; }
+.col-balance-value { width: 120px !important; }
+.col-balance-tax { width: 120px !important; }
+
+/* Table header styling for multi-level headers */
+.table-custom th {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table-custom th[rowspan="2"] {
+  background-color: #e9ecef;
+}
+
+.table-custom th[colspan] {
+  background-color: #dee2e6;
+}
+
+/* Responsive table styling */
+@media (max-width: 768px) {
+  .table-custom.table-compact th,
+  .table-custom.table-compact td {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+  }
+}
+
+/* Controls styling matching TransactionMovement Report */
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.vp-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vp-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #495057;
+}
+
+.form-control.angle {
+  border-radius: 0.375rem;
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.form-control.angle:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button styling matching TransactionMovement Report */
+.btn.angle {
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+/* Card styling matching TransactionMovement Report */
+.card-void {
+  background-color: #dc3545;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+}
+
+.card.angle {
+  border-radius: 0.375rem;
+}
+
+.gap-margin {
+  margin-bottom: 1rem;
+}
+
+/* Pagination styling */
+.pagination-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem 0;
+}
+
+.pagination-info {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+}
+
+/* Loading and no data styling */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+  font-size: 1.125rem;
+}
+
+.no-data-cell {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  color: #6c757d;
+  font-size: 1.125rem;
+}
+
+/* Breadcrumb styling */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-item {
+  font-size: 0.875rem;
+}
+
+.color-link {
+  color: #007bff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.color-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .table-wrapper {
+    font-size: 0.75rem;
+  }
+  
+  .col-balance-importer { width: 150px !important; }
+  .col-balance-desc { width: 120px !important; }
+  
+  .pagination-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .vp-field {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Text alignment */
+.text-center {
+  text-align: center;
+}
+
+/* Table header styling */
+thead.text-center th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Row span styling */
+th[rowspan="2"] {
+  vertical-align: middle;
+}

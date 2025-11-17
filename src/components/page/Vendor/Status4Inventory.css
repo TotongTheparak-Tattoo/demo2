@@ -1,0 +1,164 @@
+/* Status4Inventory Styles */
+.status4-inventory-wrapper {
+  overflow-x: hidden;
+}
+
+.status4-inventory-card {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.status4-inventory-card-header {
+  text-align: center;
+  background-color: #6c757d;
+  color: white;
+  padding: 12px 20px;
+  font-weight: 600;
+}
+
+.status4-inventory-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.status4-inventory-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status4-inventory-label {
+  font-weight: 500;
+  color: #495057;
+  white-space: nowrap;
+}
+
+.status4-inventory-input {
+  min-width: 150px;
+}
+
+.status4-inventory-btn-refresh {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status4-inventory-table-wrapper {
+  overflow-x: auto;
+  max-height: 600px;
+  margin-top: 15px;
+}
+
+.status4-inventory-table {
+  width: 100%;
+  font-size: 14px;
+  border-collapse: collapse;
+  min-width: 1200px;
+}
+
+.status4-inventory-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  padding: 10px 8px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.status4-inventory-table td {
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+.status4-inventory-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.status4-inventory-table .text-right {
+  text-align: right;
+}
+
+.status4-inventory-table .text-center {
+  text-align: center;
+}
+
+/* ===== ความกว้างคอลัมน์ (ใช้ร่วมกับ <colgroup>) ===== */
+col.col-status4-inventory-click             { width: 150px !important; }
+col.col-status4-inventory-date              { width: 110px !important; }
+col.col-status4-inventory-box-no            { width: 190px !important; }
+col.col-status4-inventory-master-invoice    { width: 190px !important; }
+col.col-status4-inventory-case-no           { width: 130px !important; }
+col.col-status4-inventory-item-name         { width: 200px !important; }
+col.col-status4-inventory-spec              { width: 170px !important; }
+col.col-status4-inventory-size              { width: 130px !important; }
+col.col-status4-inventory-qty               { width: 100px !important; }
+col.col-status4-inventory-unit              { width: 80px !important; }
+col.col-status4-inventory-vendor            { width: 350px !important; }
+
+.status4-inventory-btn-delete {
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.status4-inventory-btn-delete:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.status4-inventory-btn-delete:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status4-inventory-footer {
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  text-align: right;
+}
+
+.status4-inventory-loading {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+}
+
+.status4-inventory-no-data {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .status4-inventory-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .status4-inventory-field {
+    width: 100%;
+  }
+
+  .status4-inventory-input {
+    width: 100%;
+  }
+
+  .status4-inventory-table {
+    font-size: 12px;
+  }
+
+  .status4-inventory-table th,
+  .status4-inventory-table td {
+    padding: 6px 4px;
+  }
+}
+

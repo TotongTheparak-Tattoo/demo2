@@ -1,0 +1,53 @@
+/* BalanceReportBySize.css */
+.col-balance-partno { width: 150px !important; }
+.col-balance-stockin { width: 120px !important; }
+.col-balance-stockout { width: 120px !important; }
+.col-balance-balance { width: 120px !important; }
+.col-balance-current { width: 120px !important; }
+.col-balance-30day { width: 120px !important; }
+.col-balance-60day { width: 120px !important; }
+.col-balance-90day { width: 120px !important; }
+.col-balance-120day { width: 120px !important; }
+.col-balance-over150 { width: 130px !important; }
+
+.table-wrapper {
+  overflow-x: auto;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.table-custom th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.table-custom td {
+  white-space: nowrap;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #666;
+}
+
+.no-data-cell {
+  padding: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+}
+

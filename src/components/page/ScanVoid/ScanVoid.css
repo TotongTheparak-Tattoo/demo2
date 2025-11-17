@@ -1,0 +1,84 @@
+/* ปรับให้เข้ากับสไตล์เดิมของโปรเจกต์คุณ */
+.table-custom thead th { text-align: center; }
+
+/* header ของการ์ด */
+.card-void {
+  background: #f3f5fa;
+  font-weight: 700;
+}
+
+/* controls แถวบน */
+.vp-controls {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: end;
+  margin-bottom: 8px;
+}
+.vp-field { display: grid; gap: 6px; }
+.vp-label { font-weight: 700; }
+.vp-input-wrap { display: flex; align-items: center; gap: 8px; }
+.vp-hint { color: #6b7280; font-size: 12px; }
+
+/* subheader “Outbound Void” */
+.vp-subheader {
+  margin-top: 8px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+/* Enter button custom color */
+.btn-enter {
+  background-color: #56a8ff;
+  border-color: #56a8ff;
+  color: #fff;
+}
+
+.btn-enter:hover,
+.btn-enter:focus {
+  background-color: #4599f0; /* shade for hover/focus */
+  border-color: #4599f0;
+  color: #fff;
+}
+
+.btn-enter:disabled {
+  background-color: #a8cffd; /* lighter when disabled */
+  border-color: #a8cffd;
+  color: #fff;
+  opacity: 0.85;
+}
+
+/* table + footer */
+.table-wrapper { overflow: auto; max-height: 420px; border-radius: 6px; }
+.no-data-cell { text-align: center; color: #8b0000; font-weight: 700; }
+.num { text-align: right; }
+.vp-footer { margin-top: 10px; color: #374151; }
+.btn-xs { padding: 4px 10px; font-size: 12px; }
+
+/* Compact table like VoidProcess */
+.table-custom.table-compact {
+  table-layout: fixed; /* obey colgroup widths */
+  width: 100%;
+}
+
+.table-custom.table-compact th,
+.table-custom.table-compact td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px 6px;     /* tighter */
+  font-size: 0.85rem;   /* smaller text */
+  vertical-align: middle;
+}
+
+/* Column widths — tweak as needed */
+.col-date   { width: 110px; }
+.col-vendor { width: 140px; }
+.col-mi     { width: 140px; }
+.col-case   { width: 90px;  }
+.col-pallet { width: 110px; }
+.col-qty    { width: 80px; }
+.col-spec   { width: 160px; } /* reduce if needed */
+.col-size   { width: 90px;  }
+
+/* Right align numeric */
+.table-custom .num { text-align: right; }
