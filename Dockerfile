@@ -30,6 +30,10 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copy built app from build stage
 COPY --from=build /app/build /usr/share/nginx/html
 
+# Copy public folder (plugins, dist) to nginx html directory
+COPY --from=build /app/public/plugins /usr/share/nginx/html/plugins
+COPY --from=build /app/public/dist /usr/share/nginx/html/dist
+
 # Expose port 80
 EXPOSE 80
 
