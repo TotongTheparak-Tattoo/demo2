@@ -3,8 +3,7 @@ import join from "url-join"
 import {
     apiUrl,
     NOT_CONNECT_NETWORK,
-    NETWORK_CONNECTION_MESSAGE,
-    key
+    NETWORK_CONNECTION_MESSAGE
 } from "../constance/constance.js"
 import Swal from 'sweetalert2';
 
@@ -14,13 +13,6 @@ axios.interceptors.request.use(async (config) => {
     if(!isAbsoluteURLRegex.test(config.url)){
         config.url = join(apiUrl, config.url)
     }
-    
-    // Add token to Authorization header if available
-    const token = localStorage.getItem(key.TOKEN);
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-    }
-    
     config.timeout = 0; // 0 Second
     return config
 })

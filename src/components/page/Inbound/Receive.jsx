@@ -18,11 +18,19 @@ export default function Receive() {
   const [assignLocationMethod, setAssignLocationMethod] = useState("auto");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  const [isPrinting, setIsPrinting] = useState(false);
 
   const tableRef = useRef(null);
+  const printTimeoutRef = useRef(null);
 
   useEffect(() => {
     getVendorMaster();
+    
+    return () => {
+      if (printTimeoutRef.current) {
+        clearTimeout(printTimeoutRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -49,7 +57,7 @@ export default function Receive() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = filteredMaterialReceiveList.slice(startIndex, endIndex);
-//1234
+
   const handleVendorMasterChange = (e) => {
     setselectedVendorMaster(e.target.value);
   };
@@ -191,6 +199,7 @@ export default function Receive() {
       return updated;
     });
   };
+  
   const areAllCurrentPageItemsSelected = () =>
     currentItems.length > 0 && currentItems.every((item) => item.selected);
   const goToPage = (pageNumber) => setCurrentPage(pageNumber);
@@ -253,6 +262,18 @@ export default function Receive() {
       ...(assignLocationMethod === "manual" ? { selectLocation: selectedLocation } : {}),
     };
 
+    setIsPrinting(true);
+
+    printTimeoutRef.current = setTimeout(() => {
+      setIsPrinting(false);
+      Swal.fire({
+        icon: "error",
+        title: "Print Timeout",
+        text: "การพิมพ์ใช้เวลานานเกินไป กรุณาลองใหม่อีกครั้ง",
+        confirmButtonText: "OK",
+      });
+    }, 10000); // 10 วินาที
+
     try {
       const response = await httpClient.post(
         `/api/v1/inbound/receive/submit_print_receive`,
@@ -264,7 +285,11 @@ export default function Receive() {
         try {
           await handlePrintPalletLabels(response.data);
           
-          //waiting for create lable to recive
+          if (printTimeoutRef.current) {
+            clearTimeout(printTimeoutRef.current);
+            printTimeoutRef.current = null;
+          }
+          
           const totalItems = filteredMaterialReceiveList.length;
           const selectedItemsCount = selectedItems.length;
           const isAllProcessed = selectedItemsCount === totalItems;
@@ -277,19 +302,35 @@ export default function Receive() {
               getMaterialReceiveListByVendor();
               if (assignLocationMethod === "manual") setSelectedLocation("");
             }
-          }, 700);
+
+            setIsPrinting(false);
+          }, 500);
         } catch (printError) {
           console.error("Error generating print labels:", printError);
+          
+          if (printTimeoutRef.current) {
+            clearTimeout(printTimeoutRef.current);
+            printTimeoutRef.current = null;
+          }
+          
+          setIsPrinting(false);
+          
           Swal.fire({
             icon: "error",
             title: "Print Generation Failed",
             text: "Error generating label: " + (printError.message || "Unknown error"),
             confirmButtonText: "OK",
           });
-          // Don't receive data when error occurs
           return;
         }
       } else if (response.status === 500) {
+        if (printTimeoutRef.current) {
+          clearTimeout(printTimeoutRef.current);
+          printTimeoutRef.current = null;
+        }
+        
+        setIsPrinting(false);
+        
         Swal.fire({
           title: "Info!",
           text: response.data.result,
@@ -300,6 +341,14 @@ export default function Receive() {
       }
     } catch (error) {
       console.error("Error print receive form:", error);
+      
+      if (printTimeoutRef.current) {
+        clearTimeout(printTimeoutRef.current);
+        printTimeoutRef.current = null;
+      }
+      
+      setIsPrinting(false);
+      
       if (assignLocationMethod === "manual") setSelectedLocation("");
     }
   };
@@ -316,6 +365,7 @@ export default function Receive() {
               className="chk-lg"
               onChange={handleSelectAllCheckbox}
               checked={areAllCurrentPageItemsSelected()}
+              disabled={isPrinting} // disable checkbox ขณะ print
             />
           </>
         ) : (
@@ -366,6 +416,7 @@ export default function Receive() {
             className="chk-lg"
             checked={item.selected || false}
             onChange={() => handleRowSelectChange(index)}
+            disabled={isPrinting}
           />
         </td>
         <td className="num">{startIndex + index + 1}</td>
@@ -387,6 +438,7 @@ export default function Receive() {
       </tr>
     ));
   };
+
   const renderPagination = () => {
     if (totalPages <= 1) return null;
     const pageNumbers = [];
@@ -406,7 +458,7 @@ export default function Receive() {
         <nav aria-label="Page navigation">
           <ul className="pagination pagination-sm mb-0">
             <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-              <button className="page-link" onClick={goToPreviousPage} disabled={currentPage === 1}>
+              <button className="page-link" onClick={goToPreviousPage} disabled={currentPage === 1 || isPrinting}>
                 Previous
               </button>
             </li>
@@ -414,7 +466,7 @@ export default function Receive() {
             {startPage > 1 && (
               <>
                 <li className="page-item">
-                  <button className="page-link" onClick={() => goToPage(1)}>1</button>
+                  <button className="page-link" onClick={() => goToPage(1)} disabled={isPrinting}>1</button>
                 </li>
                 {startPage > 2 && <li className="page-item disabled"><span className="page-link">...</span></li>}
               </>
@@ -422,7 +474,7 @@ export default function Receive() {
 
             {pageNumbers.map((number) => (
               <li key={number} className={`page-item ${currentPage === number ? "active" : ""}`}>
-                <button className="page-link" onClick={() => goToPage(number)}>
+                <button className="page-link" onClick={() => goToPage(number)} disabled={isPrinting}>
                   {number}
                 </button>
               </li>
@@ -432,13 +484,13 @@ export default function Receive() {
               <>
                 {endPage < totalPages - 1 && <li className="page-item disabled"><span className="page-link">...</span></li>}
                 <li className="page-item">
-                  <button className="page-link" onClick={() => goToPage(totalPages)}>{totalPages}</button>
+                  <button className="page-link" onClick={() => goToPage(totalPages)} disabled={isPrinting}>{totalPages}</button>
                 </li>
               </>
             )}
 
             <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
-              <button className="page-link" onClick={goToNextPage} disabled={currentPage === totalPages}>
+              <button className="page-link" onClick={goToNextPage} disabled={currentPage === totalPages || isPrinting}>
                 Next
               </button>
             </li>
@@ -480,6 +532,7 @@ export default function Receive() {
                           className="form-control angle"
                           value={selectedVendorMaster}
                           onChange={handleVendorMasterChange}
+                          disabled={isPrinting} // disable dropdown ขณะ print
                         >
                           <option value="">Select Vendor</option>
                           {vendorMaster.map((vm, index) => (
@@ -503,6 +556,7 @@ export default function Receive() {
                               value="coil"
                               checked={selectUnit === "coil"}
                               onChange={handleSelectUnitChange}
+                              disabled={isPrinting}
                             />
                             <span>Coil</span>
                           </label>
@@ -513,6 +567,7 @@ export default function Receive() {
                               value="pcs"
                               checked={selectUnit === "pcs"}
                               onChange={handleSelectUnitChange}
+                              disabled={isPrinting}
                             />
                             <span>Bar</span>
                           </label>
@@ -532,6 +587,7 @@ export default function Receive() {
                               value="auto"
                               checked={assignLocationMethod === "auto"}
                               onChange={handleAssignLocationMethodChange}
+                              disabled={isPrinting}
                             />
                             <span>Auto</span>
                           </label>
@@ -542,6 +598,7 @@ export default function Receive() {
                               value="manual"
                               checked={assignLocationMethod === "manual"}
                               onChange={handleAssignLocationMethodChange}
+                              disabled={isPrinting}
                             />
                             <span>Manual</span>
                           </label>
@@ -568,6 +625,7 @@ export default function Receive() {
                             onChange={(opt) => setSelectedLocation(opt ? opt.value : "")}
                             placeholder="Assign Location"
                             isSearchable
+                            isDisabled={isPrinting}
                           />
                         </div>
                       )}
@@ -575,8 +633,6 @@ export default function Receive() {
                   </div>
                 </div>
 
-
-                {/* ===== TABLE ===== */}
                 <div className="table-wrapper table-h-scroll mt-3" ref={tableRef}>
                   <table className="table table-custom table-compact table-wide">
                     <colgroup>
@@ -605,10 +661,20 @@ export default function Receive() {
                 </div>
                 {renderPagination()}
                 <div className="actions-bottom d-flex justify-content-start mt-3">
-                  <button className="btn btn-success angle" onClick={inboundReceivePrint} style={{ fontSize: 12 }}>
-                    Print
+                  <button 
+                    className="btn btn-success angle" 
+                    onClick={inboundReceivePrint} 
+                    style={{ fontSize: 12 }}
+                    disabled={isPrinting}
+                  >
+                    {isPrinting ? "Processing..." : "Print"}
                   </button>
-                  <button className="btn btn-info angle" onClick={() => navigate("/vmi-inbound-reprint")} style={{ fontSize: 12 }}>
+                  <button 
+                    className="btn btn-info angle" 
+                    onClick={() => navigate("/vmi-inbound-reprint")} 
+                    style={{ fontSize: 12 }}
+                    disabled={isPrinting}
+                  >
                     Reprint Page
                   </button>
                 </div>

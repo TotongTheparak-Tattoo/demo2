@@ -1,5 +1,5 @@
 const APP_VERSION = 'v1'
-export const apiUrl = process.env.REACT_APP_API_URL || `http://192.168.100.124:3001`
+export const apiUrl = `http://10.120.10.120:4020`
 export const key = {
     LOGIN_PASSED: "LOGIN_PASSED", 
     USER_LVL: "USER_LVL", //Role
