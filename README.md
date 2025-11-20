@@ -68,42 +68,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-## Docker Deployment
-
-### Build and Run with Docker Compose
-
-1. **Build and start the container:**
-   ```bash
-   docker-compose up -d --build
-   ```
-
-2. **View logs:**
-   ```bash
-   docker-compose logs -f
-   ```
-
-3. **Stop the container:**
-   ```bash
-   docker-compose down
-   ```
-
-4. **Access the application:**
-   - Frontend: http://192.168.100.124:3020
-   - Backend API: http://192.168.100.124:3001 (configured in docker-compose.yml)
-
-### Build Docker Image Manually
-
-```bash
-# Build the image with API URL
-docker build --build-arg REACT_APP_API_URL=http://192.168.100.124:3001 -t demo2-frontend .
-
-# Run the container
-docker run -d -p 192.168.100.124:3020:80 --name demo2-frontend demo2-frontend
-```
-
-### Environment Variables
-
-- `REACT_APP_API_URL`: Backend API URL (default: http://192.168.100.124:3001)
-
-**Note:** The API URL must be set as a build argument during the Docker build process, as React apps embed environment variables at build time. You can change it in `docker-compose.yml` under `build.args` or pass it with `--build-arg` when building manually. 
+"# wms_vmi_bpi_frontend" 

@@ -84,18 +84,17 @@ const AppContent = () => {
     setCurrentPath(location.pathname);
   }, [location.pathname]);
 
-  // Decode token if exists
   if (token) {
     try {
       decoded = jwtDecode(token);
-      if (decoded && decoded.signupStatus) {
-        signupStatus = decoded.signupStatus;
-      }
     } catch (error) {
       console.error("Invalid token:", error);
-      // Clear invalid token
-      localStorage.removeItem(key.TOKEN);
-      localStorage.removeItem(key.LOGIN_PASSED);
+    }
+  }
+
+  if (decoded !== null && decoded !== undefined) {
+    if (decoded.signupStatus !== null && decoded.signupStatus !== undefined) {
+      signupStatus = decoded.signupStatus;
     }
   }
 
@@ -108,7 +107,7 @@ const AppContent = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/access-denied" element={<AccessDenied />} />
-        {token && signupStatus === "activate" ? (
+        {signupStatus === "activate" ? (
           <>
             <Route path="/" element={<Navigate to="/vmi-dashboard" replace />} />
             <Route path="/vmi-dashboard" element={<Dashboard />} />
@@ -146,10 +145,10 @@ const AppContent = () => {
             <Route path="/vmi-report-billing" element={<Billing />} />
             <Route path="/vmi-report-stock-movement" element={<StockMovement />} />
           </>
-        ) : token && signupStatus === "deactivate" ? (
+        ) : signupStatus === "deactivate" ? (
           <Route path="*" element={<Navigate to="/access-denied" replace />} />
         ) : (
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to={isLoggedin() ? "/access-denied" : "/login"} replace />} />
         )}
       </Routes>
       <Footer />
